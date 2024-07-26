@@ -1,0 +1,75 @@
+{% extends "sidebar_parent.html" %}
+{% load static %}
+
+{% block title %}Stats{% endblock %}
+
+{% block headers %}
+	<link rel="stylesheet" href="{% static 'css/stats.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container stats-container">
+        <h1 class="mt-4 text-white">Stats</h1>
+        <h2 class="username mt-5 text-white">{{ request.user.username }}</h2>
+        <div class="container mt-4">
+            <div class="row text-white">
+                <div class="col">
+                    Matches Win Rate
+                    <h2>{{ winrate }} %</h2>
+                    <div class="multi-graph margin">
+                        <div class="graph" data-name="Win" 
+                            style="--percentage : {{ winrate }}; --fill: #FEDA3E ;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    Average Score:
+                    <h2 id="avgScore">{{ avg_score }}</h2>
+                    <div class="chart">
+                        <div class="bar" id="avgScoreBar" style="width: 0%;"></div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <div class="container mt-5 mb-5">
+            <div class="row text-white">
+                Tournament
+                <div class="mt-2" id="tournamentStats"></div>
+            </div>
+        </div>
+        <table>
+            <caption class="text-white">
+                Recent Matches
+            </caption>
+            <tr>
+                <th>Win/Lose</th>
+                <th>Scores</th>
+                <th>Versus</th>
+                <th>Date</th>
+            </tr>
+            {% for game in games %}
+            <tr>
+                {% if game.winner %}
+                    {% if game.winner == player %}
+                        <td data-cell="result">Won</td>
+                    {% else %}
+                        <td data-cell="result">Lost</td>
+                    {% endif %}
+                {% else %}
+                        <td data-cell="result">Draw</td>
+                {% endif %}
+            
+                {% if game.player1 == player %}
+                    <td data-cell="scores">{{ game.player1_score }} - {{ game.player2_score }}</td>
+                    <td data-cell="versus">{{ game.player2.user.username }}</td>
+                {% else %}
+                    <td data-cell="scores">{{ game.player2_score }} - {{ game.player1_score }}</td>
+                    <td data-cell="versus">{{ game.player1.user.username }}</td>
+                {% endif %}
+                <td data-cell="date">{{ game.creation_time|date:"d/m/y" }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+	<script src="{% static 'js/stats.js' %}"></script>
+{% endblock %}

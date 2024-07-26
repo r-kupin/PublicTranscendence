@@ -1,0 +1,30 @@
+{% extends "sidebar_parent.html" %}
+{% load static %}
+
+{% block title %}Pong{% endblock %}
+
+{% block headers %}
+  <link href="{% static 'css/pong.css' %}" media="screen, print" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+  <main class="content">
+    
+    <canvas id="gamePong"></canvas>
+    
+    <script src="{% static 'js/game.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/pong.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+      Game.ready(function() {
+        const game_id = '{{ game.id }}';
+        const socket = new WebSocket(`wss://${window.location.host}/wss/game/${game_id}/`);
+
+        var pong = Game.start('gamePong', Pong, {
+          me: JSON.parse('{{ me|escapejs }}'),
+          socket: socket,
+          multi: true
+        });
+      });
+    </script>
+  </main>
+{% endblock %}

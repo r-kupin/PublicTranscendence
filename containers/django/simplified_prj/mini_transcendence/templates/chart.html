@@ -1,0 +1,48 @@
+{% extends "parent.html" %}
+
+{% block title %}
+Chart
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-8"> 
+            <h1> Hello, {{ request.user.username }} ! </h1>
+        </div>
+        <div class="col"> 
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <input type="submit" value="Logout" class="btn btn-primary">
+                <input type="hidden" name="next" value="{% url 'login' %}">
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <h2 class="card-header mb-0 bg-primary text-white">Users</h2>
+                <div class="card-body">
+                  <ul class="list-group list-footer-flush">
+                    {% for x in allusers %}
+                        <li class="list-group-item"><a href="details/{{ x.id }}">{{ x.login }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <h2 class="card-header mb-0 bg-primary text-white">Game records</h2>
+                <div class="card-body">
+                    <ul class="list-group list-footer-flush">
+                        {% for game in allgames %}
+                            <li class="list-group-item">{{ game.player1 }} vs {{ game.player2 }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "parent.html" %}
+{% load static %}
+
+{% block title %}Welcome to PONG{% endblock %}
+
+{% block headers %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+{% endblock %}
+
+{% block content %}
+    <div class="idex-container mt-5">
+        <div class="pong">Pong!</div>
+        
+        <div class="pic">
+        <img src="{% static 'assets/images/pic.png' %}" alt="Pong Logo">
+        </div>
+        
+        <a href="{% url 'login' %}">
+        <button>Sign In</button>
+        </a>
+
+{#        <!--<a href="{% url 'logintra' %}" class="mt-2 mb-2">#}
+{#        <button>Sign In With 42</button>#}
+{#        </a>>-->#}
+
+        <a href="{% url 'signup' %}" class="mt-2">
+        <button>Create New Account</button>
+        </a>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "parent.html" %}
+{% load static %}
+
+{% block title %}Logout{% endblock %}
+
+{% block headers %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/logout.css' %}" />
+{% endblock %}
+
+{% block index_content %}
+    <h2 class="logout-header text-white mt-2 pl-3">
+        You have been logged out
+    </h2>
+    <div class="pt-3 row pl-3">
+        <small class="text-white">
+            <a href="{% url 'login' %}">Sign In Again</a>
+            <!--/
+            <a href="{% url 'logintra' %}">Sign In With 42</a>-->
+        </small>
+    </div>
+{% endblock %}

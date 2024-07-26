@@ -1,0 +1,97 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+      background: linear-gradient(129.95deg, #090B18 -1.1%, rgba(30, 30, 30, 0.89) 72.8%);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .logo {
+      width: 2.5rem;
+      height: 2.5rem;
+      filter: invert(1);
+  }
+  
+  .container-main {
+      border-radius: 1.3rem;
+      border: 0.3rem solid #C00F0F;
+      padding: 2.9rem 1.4rem 6.1rem 1.5rem;
+      max-width: 600px;
+  }
+  
+  .sign-in {
+      margin: 0 0.1rem 5.2rem 0;
+      text-align: center;
+      font-family: 'Squada One';
+      font-weight: 400;
+      font-size: 1.9rem;
+      color: #FFFFFF;
+  }
+  
+  .form {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .container-input {
+      border-radius: 0.6rem;
+      background: #5F5F62;
+      margin-bottom: 3.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 0.6rem 0 0.5rem 0.4rem;
+      width: 22.1rem;
+  }
+  
+  .container-input label {
+      overflow-wrap: break-word;
+      font-family: 'Squada One';
+      font-weight: 400;
+      font-size: 1.9rem;
+      color: rgb(255, 255, 255);
+  }
+  
+  .container-input input {
+      margin-right: 0.4rem;
+      font-weight: lighter;
+      color: white;
+      border-radius: 0.6rem;
+      font-size: 1.25rem;
+      padding: .5em;
+      background-color: transparent;
+      outline: none;
+  }
+  
+  .login-button {
+      font-family: 'Squada One';
+      font-weight: 400;
+      font-size: 1.9rem;
+      color: #FFFFFF;
+      border-radius: 0.6rem;
+      background: #5F5F62;
+      padding: 0.3rem 1.2rem;
+  }
+  
+  .intra {
+      display: flex;
+      justify-content: center;
+  }
+  
+  .login-42 {
+      font-family: 'Squada One';
+      font-weight: 400;
+      font-size: 1.9rem;
+      color: #FFFFFF;
+      border-radius: 0.6rem;
+      background: #5F5F62;
+      padding: 0.3rem 1.2rem;
+  }
+  

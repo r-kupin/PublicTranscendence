@@ -1,0 +1,10 @@
+django-bootstrap-v5
+tzdata
+pillow
+requests
+requests-oauthlib
+channels
+channels-redis
+daphne
+Web3
+psycopg2-binary

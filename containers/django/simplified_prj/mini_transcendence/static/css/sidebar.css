@@ -1,0 +1,209 @@
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background: linear-gradient(129.95deg, #090B18 -1.1%, rgba(30, 30, 30, 0.89) 72.8%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.wrapper {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+
+/* définir les dimensions et le style de base du sidebar, 
+incluant un fond dégradé et un  */
+#sidebar {
+  width: 70px;
+  height: 100vh;
+  min-width: 70px;
+  z-index: 1000; /* assurer que la barre latérale (sidebar) sera affichée devant d'autres éléments */
+  font-family: 'Squada One';
+  transition: all .25s ease-in-out; /* définir une transition pour les changements de style sur l'élément, all signifie que tous les changements de propriétés CSS seront animés */
+  background: linear-gradient(90deg, #000000, #770000);
+  display: flex;
+  flex-direction: column;
+  position: fixed; /* comportement fixe pour qu'elle reste visible lors du défilement de la page */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+/* lorsque la classe expand est ajoutée à la barre latérale, sa largeur augmente pour afficher plus de contenu */
+#sidebar.expand {
+  width: 160px;
+  min-width: 160px;
+}
+
+
+/* définir les dimensions et le style de base du button d'expand */
+#toggle-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  padding: 1rem 1.5rem;
+}
+
+#toggle-btn i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.sidebar-logo a {
+  color: #FFF;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* lorsque la barre latérale n'est pas étendue, le logo du sidebar et le texte des liens sont cachés 
+lorsque la barre latérale est étendue, ils apparaissent avec une animation fadeIn */
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+  display: none;
+}
+
+#sidebar.expand .sidebar-logo,
+#sidebar.expand a.sidebar-link span {
+  animation: fadeIn .25s ease;
+}
+
+/* règle créer une animation nommée "fadeIn" */
+@keyframes fadeIn {
+
+    /* animations définies par des étapes, spécifiées en pourcentages de la durée totale de l'animation */
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.sidebar-nav {
+  padding: 2rem 0;
+  flex: 1 1 auto;
+}
+
+a.sidebar-link {
+  padding: .625rem 1.625rem;
+  color: #FFF;
+  display: block;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-link i,
+.dropdown-item i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+  background-color: rgba(255, 255, 255, .075);
+  border-left: 3px solid #3b7ddd;
+}
+
+
+/* gerer les sous-menus de la barre Online Users, masqués par défaut lorsque la barre n'est pas étendue 
+et s'affichent lorsque l'élément parent est étendue */
+.sidebar-item {
+  position: relative;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  background-color: #0e2238;
+  padding: 0;
+  min-width: 15rem;
+  display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  background-color: #0e2238;
+  padding: 0;
+  min-width: 15rem;
+  display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+  display: block;
+  max-height: 15em;
+  width: 100%;
+  opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+  border: solid;
+  border-width: 0 .075rem .075rem 0;
+  content: "";
+  display: inline-block;
+  padding: 2px;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.4rem;
+  transform: rotate(-135deg);
+  transition: all .2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+  transform: rotate(45deg);
+  transition: all .2s ease-out;
+}
+
+.online-users {
+    position: relative;
+}
+
+#online-users-list {
+    padding-left: 0;
+}
+
+#online-users-list .sidebar-link {
+    padding-left: 2.5rem;
+}
+
+#online-users-list .sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+}
+
+.modal-content {
+    font-family: 'Squada One';
+    background: linear-gradient(90deg, #000000, #770000);
+}
+
+/* Player's info styling */
+.player-profile {
+    background: linear-gradient(129.95deg, #090B18 -1.1%, rgba(30, 30, 30, 0.89) 72.8%);
+    color: white;
+    font-family: 'Squada One';
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.player-profile .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}

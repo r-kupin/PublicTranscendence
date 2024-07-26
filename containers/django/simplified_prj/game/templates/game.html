@@ -1,0 +1,21 @@
+{% extends "sidebar_parent.html" %}
+{% load static %}
+
+{% block title %}Game{% endblock %}
+
+{% block headers %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/game.css' %}" />
+{% endblock %}
+
+{% block content %}
+	<div class="container btn-group-horizontal game-container">
+		<a href="{% url 'solo' %}">
+            <button class="game-btn">Quick game</button>
+        </a>
+        <form id="create_form" action="{% url 'create_tournament' %}" method="post">
+            {% csrf_token %}
+            <button id="create_button" class="game-btn" type="submit">Create Tournament</button>
+        </form>
+	</div>
+	<script src="{% static 'js/lobby.js' %}"></script>
+{% endblock %}

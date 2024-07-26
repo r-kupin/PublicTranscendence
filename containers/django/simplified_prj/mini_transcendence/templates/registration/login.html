@@ -1,0 +1,45 @@
+{% extends "parent.html" %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block headers %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+{% endblock %}
+
+{% block content %}
+    <div class="login-container mt-5">
+        <div class="container-main">
+            <form class="form" action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <h1 class="sign-in">Sign in</h1>
+                <div class="container-input">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="container-input">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-button">Login</button>
+                <input type="hidden" name="next" value="/home">
+            </form>
+            <div class="intra mt-2">
+                <a href="{% url 'sign-in-intra' %}">
+                    <button class="login-42" type="submit">
+                        Login With
+                        <img class="logo" src="{% static 'assets/images/logo.png' %}" alt="Logo">
+                    </button>
+                </a>
+            </div>
+            <div class="pt-3 row">
+                <small class="text-white">
+                    No Account? 
+{#                    <!--<a class="ml-2" href="{% url 'logintra' %}">Sign In With 42</a>#}
+{#                    /-->#}
+                    <a class="ml-2" href="{% url 'signup' %}">Create A New Account</a>
+                </small>
+            </div>
+        </div>
+    </div>
+{% endblock %}

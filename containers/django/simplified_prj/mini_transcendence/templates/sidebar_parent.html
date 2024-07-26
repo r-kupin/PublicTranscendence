@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% load static %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% block headers %}{% endblock %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Koulen:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Squada+One:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="wrapper">
+        <aside id="sidebar">
+			<div class="d-flex">
+				<button id="toggle-btn" type="button">
+				<i class="fa fa-th-large"></i>
+				</button>
+				<div class="sidebar-logo">
+				<a href="#"></a>
+				</div>
+			</div>
+			<ul class="sidebar-nav">
+				<li class="sidebar-item">
+				<a href="/home" class="sidebar-link">
+					<i class="fa-solid fa-house" style="color: #ffffff;"></i>
+					<span>Home</span>
+				</a>
+				</li>
+				<li class="sidebar-item">
+				<a href="/profile" class="sidebar-link">
+					<i class="fa-solid fa-user" style="color: #ffffff;"></i>
+					<span>Profile</span>
+				</a>
+				</li>
+				<li class="sidebar-item">
+				<a href="/game" class="sidebar-link">
+					<i class="fas fa-thin fa-gamepad" style="color: #ffffff;"></i>
+					<span>Game</span>
+				</a>
+				</li>
+				<li class="sidebar-item">
+                <a href="/chat" class="sidebar-link">
+                    <i class="fa-solid fa-comments" style="color: #ffffff;"></i>
+                    <span>Chat</span>
+                </a>
+                </li>
+				<li class="sidebar-item">
+				<a href="/stats" class="sidebar-link">
+					<i class="fa-solid fa-chart-simple" style="color: #ffffff;"></i>
+					<span>Stats</span>
+				</a>
+				</li>
+				<li class="sidebar-item">
+				<a href="/settings" class="sidebar-link">
+					<i class="fa-solid fa-gear" style="color: #ffffff;"></i>
+					<span>Settings</span>
+				</a>
+				</li>
+                <li class="sidebar-item online-users mt-5">
+                    <div class="sidebar-link-wrapper">
+                        <a href="#" class="sidebar-link has-dropdown" id="online-users-toggle">
+                            <i class="fa-solid fa-user-friends" style="color: #ffffff;"></i>
+                            <span>Online Users</span>
+                        </a>
+                        <ul id="online-users-list" class="sidebar-dropdown list-unstyled">
+                            <!-- Dynamic Online Users will be loaded here -->
+                        </ul>
+                    </div>
+                </li>                
+			</ul>
+            {% block logout_content %}
+            {% endblock %}
+		</aside>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!-- Player Data Modal -->
+    <div class="modal fade" id="playerDataModal" tabindex="-1" aria-labelledby="playerDataModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="playerDataModalLabel">Player Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Player data will be loaded here dynamically -->
+                    <div id="player-data-content"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/sidebar.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

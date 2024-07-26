@@ -1,0 +1,32 @@
+.content-section {
+    flex-grow: 1;
+    margin: auto; /* Center the settings container */
+    max-width: calc(80% - 160px); /* Adjust max-width to accommodate expanded sidebar */
+    transition: max-width 0.25s ease; /* Add transition effect */
+}
+
+.main-container {
+    font-family: 'Squada One';
+    background-color: rgb(63, 2, 2);
+    border-radius: 0.6rem;
+    padding: 10px;
+}
+
+/* Style for messages container */
+.messages-container {
+    font-family: 'Squada One';
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.6rem;
+    padding: 10px;
+    color: #fff;
+}
+
+.messages-container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.messages-container li {
+    margin-bottom: 10px;
+}

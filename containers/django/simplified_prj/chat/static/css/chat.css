@@ -1,0 +1,276 @@
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.room-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#main-content {
+    margin-left: 200px; /* Adjust this based on your sidebar width */
+}
+
+.chat-app {
+    background-color: rgba(11, 107, 86, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    max-width: 600px; /* Increased width */
+}
+
+.chat-room-list {
+    list-style-type: none;
+    font-family: 'Squada One', cursive;
+    padding: 0;
+}
+
+.chat-room {
+    background-color: rgb(54, 54, 54);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    transition: background-color 0.3s;
+}
+
+.chat-name {
+    font-family: 'Koulen';
+    font-size: 28px;
+    color: #3a9764;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-decoration: none; /* removing underline */
+    background-color: rgb(54, 54, 54);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;/
+}
+
+.chat-name:hover {
+    background-color: yellow;
+    color: black;
+}
+
+.delete-chat {
+    font-family: 'Squada One';
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    background-color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-chat:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(131, 0, 0);
+}
+
+.chat-room:hover {
+    background-color: rgba(24, 81, 134, 0.534);
+}
+
+.players-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.players-list li {
+    background-color: rgb(20, 136, 59);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.players-list li:hover {
+    background-color: rgba(31, 31, 31, 0.7);
+}
+
+.players-list li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+/* INPUT FORM STYLING */
+.message-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.chat-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.send-button {
+    padding: 10px 20px;
+    background-color: #3fb373; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.send-button:hover {
+    background-color: #3b96ff; /* Button background color on hover */
+    color: rgb(255, 255, 255); /* Button text color on hover */
+}
+
+/* MESSAGE STYLING */
+.sent,
+.received {
+    word-wrap: break-word; /* permettre le wrap des mots longs */
+    white-space: pre-wrap; /* préserver les sauts de ligne */
+    display: inline-block; /* permettre l'alignement des messages */
+    max-width: 70%; /* limite la largeur des messages */
+    margin: 5px 0; /* espacement vertical entre les messages */
+    padding: 10px; /* espacement intérieur des messages */
+    border-radius: 10px;
+    clear: both; /* assure que chaque message commence sur une nouvelle ligne */
+}
+
+.sent {
+    background-color: #d1ffd6;
+    color: #000;
+    text-align: right;
+    float: right; /* positionne les messages envoyés à droite */
+}
+
+.received {
+    background-color: #f1f0f0;
+    color: #000;
+    text-align: left;
+    float: left; /* positionne les messages reçus à gauche */
+}
+
+#messages ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#messages {
+    position: relative;
+    height: 70vh; /* ajustez la hauteur selon nos besoins */
+    overflow-y: auto; /* permettre le défilement des messages si nécessaire */
+}
+
+/* Player's info styling */
+.player-info {
+    background: linear-gradient(129.95deg, #090B18 -1.1%, rgba(30, 30, 30, 0.89) 72.8%);
+    color: white;
+    font-family: 'Squada One';
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 10px; /* Adjust the top value as needed */
+}
+
+.player-info h2 {
+    margin-top: 0;
+}
+
+.player-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+#remove-chat-button {
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#chat-button, #invite-button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #2874a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#chat-button:hover, #invite-button {
+    background-color: #1163c0;
+}
+
+#add-friend-button, #unblock-button, .accept-button, .join-button, .alias-form button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-friend-button:hover, #unblock-button:hover, .accept-button:hover, .join-button:hover, .alias-form button:hover {
+    background-color: #218838;
+}
+
+#remove-friend-button, #block-button, .decline-button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #a72828;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#remove-friend-button:hover, #block-button:hover, .decline-button:hover {
+    background-color: #cf3131;
+}
+
+.alias-form input {
+    width: 100%; /* Make the input field take the full width of the form */
+    padding: 8px;
+    margin-bottom: 10px; /* Add some space below the input field */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.sender-name {
+    font-family: 'Squada One', cursive;
+}

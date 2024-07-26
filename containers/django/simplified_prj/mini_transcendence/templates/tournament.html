@@ -1,0 +1,275 @@
+{% extends "sidebar_parent.html" %}
+{% load static %}
+
+{% block title %}Tournament{% endblock %}
+
+{% block headers %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/tournament.css' %}" />
+{% endblock %}
+
+{% block content %}
+    <div class="Container mt-5 tournament-container">
+    <!-- Top 8 -->
+        <div class="Branch_1">
+                    
+            <form id="matchForm" action="{% url 'game' %}" method="get">
+                <div class="Match">
+                    <div class="Object_1">
+                        
+                        <div><input class="Name" type="text" id="Player1" name="player" placeholder="Alias" required></div>
+            
+                        <div>
+                            <select id="Result1">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+            
+                        <div><input class="Name" type="text" id="Player2" name="player" placeholder="Alias" required></div>
+            
+                        <div>
+                            <select id="Result2">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                    </div>
+            
+                <div class="Match">
+                    <div class="Object_1">
+                        <div><input class="Name" type="text" id="Player3" name="player" placeholder="Alias" required></div>
+            
+                        <div>
+                            <select id="Result3">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+            
+                        <div><input class="Name" type="text" id="Player4" name="player" placeholder="Alias" required></div>
+            
+                        <div>
+                            <select id="Result4">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="Match">
+                    <div class="Object_1">
+            
+                        <div><input class="Name" type="text" id="Player5" name="player" placeholder="Alias" required></div>
+            
+                        <div>
+                            <select id="Result5">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+            
+                        <div><input class="Name" type="text" id="Player6" name="player" placeholder="Alias" required></div>
+            
+                        <div>
+                            <select id="Result6">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="Match">
+                    <div class="Object_1">
+            
+                        <div><input class="Name" type="text" id="Player7" name="player" placeholder="Alias" required></div>
+            
+                        <div>
+                            <select id="Result7">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+            
+                        <div><input class="Name" type="text" id="Player8" name="player" placeholder="Alias" required></div>
+            
+                        <div>
+                            <select id="Result8">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="Match tournament-btn">
+                    <div class="button-container">
+                        <div class="reset-btn">
+                            <button class="tournament-btn" type="reset">Reset Aliases</button>
+                        </div>
+                        <div class="start-btn">
+                            <button class="tournament-btn" type="submit">Start Tournament</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- SEMI-FINAL -->
+        <div class="Branch_2">
+            <div class="Match_02">
+                <div class="Object_2">
+
+                    <div class="Name_Forward" type="text" id="Player9">Player</div>
+
+                    <div>
+                    <form name="FormId9" class="Result">
+                        <select id="Result9">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        </select>
+                    </form>
+                    </div>
+
+                    <div class="Name_Forward" type="text" id="Player10">Player</div>
+
+                    <div>
+                    <form name="FormId10" class="Result">
+                        <select id="Result10">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        </select>
+                    </form>
+                    </div>
+                </div>
+                </div>
+
+                <div class="Match_02">
+                <div class="Object_2">
+
+                    <div class="Name_Forward" type="text" id="Player11">Player</div>
+
+                    <div>
+                    <form name="FormId11" class="Result">
+                        <select id="Result11">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        </select>
+                    </form>
+                    </div>
+
+                    <div class="Name_Forward" type="text" id="Player12">Player</div>
+
+                    <div>
+                    <form name="FormId12" class="Result">
+                        <select id="Result12">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        </select>
+                    </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- FINAL -->
+        <div class="Branch_3">
+            <div class="Match_03">
+            <div class="Object_3">
+
+                <div class="Name_Forward" type="text" id="Player13">Player</div>
+
+                <div>
+                <form name="FormId13" class="Result">
+                    <select id="Result13">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    </select>
+                </form>
+                </div>
+
+                <div class="Name_Forward" type="text" id="Player14">Player</div>
+
+
+                <div>
+                <form name="FormId14" class="Result">
+                    <select id="Result14">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    </select>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- WINNER -->
+        <div class="Branch_4">
+            <div class="Object_4">
+                <div class="Match_03">
+                    <div class="Name_champion">CHAMPION</div>
+                    <div class="Name_champion mt-3 winner" type="text" id="Player15">Player</div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <script src="{% static 'js/tournament.js' %}"></script>
+{% endblock %}

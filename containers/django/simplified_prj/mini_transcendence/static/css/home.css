@@ -1,0 +1,43 @@
+main {
+    margin-left: 70px;
+}
+
+h1 {
+	font-family: 'Squada One';
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  color: #FFFFFF;
+}
+
+.pongpic {
+  margin-top: 1rem;
+}
+
+.container-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.how-to-play {
+  margin: 1rem 0rem 1.7rem 0;
+  font-family: 'Squada One';
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.explanation {
+  font-family: 'Squada One';
+  margin: 0rem 15rem 1.7rem 15rem;
+}
+
+.follow-us img {
+  width: 5rem;
+  height: 5rem;
+}

@@ -1,0 +1,164 @@
+.container.stats-container {
+    flex-grow: 1;
+    margin: auto; /* Center the stats container */
+    max-width: calc(80% - 160px); /* Adjust max-width to accommodate expanded sidebar */
+    transition: max-width 0.25s ease; /* Add transition effect */
+}
+
+.username {
+  font-family: 'Squada One';
+}
+
+.multi-graph{
+  width: 300px;
+  height: 150px;
+  position: relative;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing : border-box;
+   &:before{
+    content: '';
+    width: 300px;
+    height: 150px;
+    border:50px solid rgba(0,0,0,.15);
+    border-bottom: none;
+    position: absolute;
+    box-sizing : border-box;
+    transform-origin: 50%  0%;
+    border-radius: 300px 300px 0 0 ;
+    left: 0;
+    top: 0;
+  } /*creates a semi-circular graph*/
+  .graph{
+    width: 300px;
+    height: 150px;
+    border:50px solid var(--fill);
+    border-top: none;
+    position: absolute;
+    transform-origin :50%  0% 0;
+    border-radius: 0 0 300px 300px ;
+    left: 0;
+    top: 100%;
+    z-index: 5;
+    animation : 1s fillGraphAnimation ease-in;
+    transform: rotate( calc( 1deg * ( var(--percentage) * 1.8 ) ) );
+    box-sizing : border-box;
+    cursor: pointer;
+    &:after{
+      counter-reset: varible var(--percentage);
+      background: var(--fill) ;
+      box-sizing : border-box;
+      border-radius : 2px;
+      color: #fff;
+      font-weight: 200;
+      font-size: 12px;
+      height: 20px;
+      padding: 3px 5px;
+      top: 0px;
+      position: absolute;
+      left: 0;
+      transform: rotate(calc( -1deg * var(--percentage) * 1.8 ))  translate(-30px , 0px);
+      transition:0.2s ease-in;
+      transform-origin: 0 50% 0;
+      opacity: 0;
+    }
+    &:hover{
+        opacity: 0.8;
+      &:after{
+        opacity: 1;
+        left: 30px;
+      }
+    }
+  }
+}
+
+@keyframes fillAnimation{
+  0%{transform : rotate(-45deg);}
+  50%{transform: rotate(135deg);}
+}
+
+@keyframes fillGraphAnimation{
+  0%{transform: rotate(0deg);}
+  50%{transform: rotate(180deg);}
+}
+
+.chart {
+  width: 300px;
+  margin: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.bar {
+  background-color: #4CAF50;
+  height: 30px;
+  margin: 5px;
+  transition: width 0.5s ease-in-out;
+  animation : 1s fillBarAnimation ease-in;
+  transition: width 0.5s ease-in-out;
+}
+.bar:nth-child(odd) {
+  background-color: #FEDA3E;
+}
+
+@keyframes fillBarAnimation{
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+}
+
+caption {
+  caption-side: top;
+  color: #eee;
+  font-family: 'Squada One';
+  font-size: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #323232;
+}
+
+th,
+td {
+  padding: 1rem;
+}
+
+th {
+  background: linear-gradient(90deg, #000000, #770000);
+}
+
+tr {
+  color: #eee;
+}
+
+tr:nth-of-type(2n){
+  background: hsl(0 0% 0% / 0.1);
+}
+
+@media (max-width: 650px) {
+  th {
+    display: none;
+  }
+
+  td {
+    display: grid;
+    grid-template-columns: 15ch auto;
+    padding: 0.5rem 1rem;
+  }
+
+  td::before {
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+}

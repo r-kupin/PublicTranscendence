@@ -1,0 +1,15 @@
+{% extends "parent.html" %}
+
+{% block title %}
+User Chart
+{% endblock %}
+
+{% block content %}
+    <div class="login-container">
+      <h1>{{ user.login }}</h1>
+      <p>Name: {{user.firstname}}</p>
+      <p>Last name: {{user.lastname}}</p>
+      <p>wins/loses: {{user.wins}} / {{user.loses}}</p>
+      <div class="message">Back to <a href="/chart">chart</a></div>
+    </div>
+{% endblock %}

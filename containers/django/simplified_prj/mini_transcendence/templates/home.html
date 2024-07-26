@@ -1,0 +1,53 @@
+{% extends "sidebar_parent.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block headers %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+{% endblock %}
+
+
+{% block logout_content %}
+    <div class="sidebar-footer mb-4">
+    <form method="post" action="{% url 'logout' %}" style="display: inline;">
+        {% csrf_token %}
+        <a href="#" class="sidebar-link" onclick="this.closest('form').submit(); return false;">
+            <i class="fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #ffffff;"></i>
+            <span>Logout</span>
+        </a>
+        <input type="hidden" name="next" value="{% url 'login' %}">
+    </form>
+    </div>
+{% endblock %}
+
+{% block content %}
+  <main class="content home-container">
+    <header class="text-center mt-4">
+      <h1 class="dispaly-6">Welcome to Pong!</h1>
+    </header>
+    <div class="pongpic">
+      <img src="{% static 'assets/images/pong_1.png' %}" alt="" srcset="">
+    </div>
+    <div class="container-1">
+      <span class="how-to-play">
+        How To Play?
+      </span>
+      <p class="explanation">
+        A pong ball moves across the screen, bouncing off the upper/lower edges and the left/right pads.
+        Each player will manage a pad by maneuvering them vertically.
+        Upon contact with a pad, the ball bounces toward the opposing player. The trajectory of the ball varies based on its interaction with the pad. 
+        Should it evade the opposing player's pad, you earn a point. The first player who reaches 5 points wins the match.
+      </p>
+    </div>
+    <div class="container-2">
+      <span class="follow-us">
+        Follow Us
+        <a href="https://github.com/r-kupin/Transcendence">
+          <img src="{% static 'assets/images/github_mark_white_1.png' %}" class="github-logo">
+        </a>
+      </span>
+    </div>
+  </main>
+  <script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

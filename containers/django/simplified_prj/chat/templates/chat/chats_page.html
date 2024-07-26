@@ -1,0 +1,66 @@
+{% extends "sidebar_parent.html" %}
+{% load static %}
+
+{% block title %}Chat{% endblock %}
+
+{% block headers %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/chat.css' %}" />
+{% endblock %}
+
+{% block content %}
+<p class="text-white" style="color: #FFF;">{{ user.username }}</p>
+<div class="container mt-4">
+    <div id="main-content" class="chat-app">
+    {% if not chats %}
+		<h1 class="text-white">No chats for now. You can invite people by clicking on their nicknames</h1>
+    {% else %}
+        <h1 class="text-white">Chats</h1>
+        <ul class="chat-room-list mt-4">
+        {% for chat in chats %}
+            {% if chat.i_am_blocked == True %}
+			    <h3 style="color: #FFF;">Blocked Chat</h3>
+            {% endif %}
+			{% if chat.i_am_blocked == False %}
+            <li class="chat-room" id="chat_{{chat.chat_id}}">
+				<form class="send_form" action="{% url 'get-messages-form-chat' chat.chat_id %}" method="post" onsubmit="event.preventDefault();">
+					{% csrf_token %}
+					<input type="hidden" id="username" value="{{ user.username }}">
+					<input type="hidden" id="chat_id" value="{{ chat.chat_id }}">
+					<button class="chat-name" style="color: #FFF;" id="link_to_chat" type="submit">{{ chat.name }}</button>
+				</form>
+                <h3 class="text-white mt-2">Players in chat: {{ chat.players_amount }}</h3>
+                <ul class="players-list">
+					{% for player_data in chat.players_in_chat %}
+                    	<div>
+                            <li>
+                                <a id="player-anchor" href="{{ player_data.link }}">{{ player_data.username }}</a>
+                            </li>
+                        </div>
+                    {% endfor %}
+                </ul>
+                <button class="delete-chat" onclick="deleteChat('{{ chat.action_links.delete_chat }}', '{{chat.chat_id}}')">Delete</button>
+            </li>
+			{% endif %}
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+</div>
+<div class="room-container mt-4">
+    <div id="room-content" class="chat-app">
+        <h1 id="room_name" class="text-white">Room: {{ room.name }}</h1>
+        <div id="messages" class="chat-messages">
+            <ul></ul> <!-- Container for messages -->
+        </div>
+        <form id="message-form">
+            {% csrf_token %}
+            <input type="hidden" name="message" id="message" class="chat-input mt-3" required />
+            <button id="send_button" type="submit" class="button send-button mt-2" hidden>Send</button>
+        </form>
+    </div>
+</div>
+<div id="player-info" class="player-info mt-5" data-player-id="">
+    <!-- Player information will be displayed here -->
+</div>
+<script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}

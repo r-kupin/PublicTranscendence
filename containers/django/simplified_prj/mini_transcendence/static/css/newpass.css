@@ -1,0 +1,116 @@
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(129.95deg, #090B18 -1.1%, rgba(30, 30, 30, 0.89) 72.8%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: linear-gradient(90deg, #000000, #770000);
+    border-radius: 10px;
+}
+
+header h1 {
+    font-family: 'Squada One', cursive;
+    font-size: 2.5rem;
+}
+
+label {
+    font-family: 'Squada One', cursive;
+    font-size: 1.2rem;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+input[type="password"]:focus {
+    outline: none;
+}
+
+button[type="submit"], .btn-outline-info {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Squada One', cursive;
+    font-size: 1.2rem;
+}
+
+button[type="submit"] {
+    
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.btn-outline-info {
+    margin-top: 10px;
+    border: 2px solid #17a2b8;
+    color: #17a2b8;
+}
+
+.btn-outline-info:hover {
+    background-color: #17a2b8;
+    color: #ffffff;
+}
+
+.cancel-button {
+    font-family: 'Squada One', cursive;
+    margin-left: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    font-size: 1rem;
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Style for messages container */
+.messages-container {
+    font-family: 'Squada One';
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.6rem;
+    padding: 10px;
+    color: #fff;
+}
+
+.messages-container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.messages-container li {
+    margin-bottom: 10px;
+}
