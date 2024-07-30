@@ -14,8 +14,6 @@ services:
         POSTGRES_DB: ${POSTGRES_DB}
     expose:
       - 5432
-#    ports:
-#      - "42422:5432"
     networks:
       - transcendence
     volumes:
@@ -65,6 +63,8 @@ services:
       - django
     ports:
       - "42443:443"
+    env_file:
+      - .env
     networks:
       - transcendence
     volumes:

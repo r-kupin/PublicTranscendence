@@ -30,7 +30,7 @@ SECRET_KEY = read_secret('/run/secrets/secret_key')
 SECURE_CONTENT_TYPE_NOSNIFF = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
@@ -41,20 +41,22 @@ SECURE_SSL_REDIRECT = True
 # Enable Secure Proxy SSL Header
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = ['made-f0Br7s7.clusters.42paris.fr']
+HOST = os.environ.get('HOST', '0.0.0.0')
+PORT = os.environ.get('PORT', '42443')
 
+ALLOWED_HOSTS = [HOST]
 CSRF_TRUSTED_ORIGINS = [
-    'https://made-f0Br7s7.clusters.42paris.fr',
-    'https://made-f0Br7s7.clusters.42paris.fr:42443'
+    'https://' + HOST,
+    'https://' + HOST + ':' + PORT
 ]
 
 CSRF_ALLOWED_ORIGINS = [
-    'https://made-f0Br7s7.clusters.42paris.fr',
-    'https://made-f0Br7s7.clusters.42paris.fr:42443'
+    'https://' + HOST,
+    'https://' + HOST + ':' + PORT
 ]
 CORS_ORIGINS_WHITELIST = [
-    'https://made-f0Br7s7.clusters.42paris.fr',
-    'https://made-f0Br7s7.clusters.42paris.fr:42443'
+    'https://' + HOST,
+    'https://' + HOST + ':' + PORT
 ]
 
 # Application definition
@@ -165,7 +167,7 @@ STATIC_ROOT = os.getenv('STATIC_ROOT', None)
 MEDIA_URL = os.getenv('MEDIA_URL', None)
 MEDIA_ROOT = os.getenv('MEDIA_ROOT', None)
 
-INTRA_REDIRECT_LINK = os.getenv('INTRA_REDIRECT_LINK', None)
+INTRA_REDIRECT_LINK = 'https://' + HOST + ':' + PORT + '/intra-callback'
 OAUTH2_CLIENT_ID = read_secret('/run/secrets/oauth2_client_id')
 OAUTH2_CLIENT_SECRET = read_secret('/run/secrets/oauth2_client_secret')
 OAUTH2_TOKEN_URL = os.getenv('OAUTH2_TOKEN_URL', None)
