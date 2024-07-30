@@ -1,14 +1,55 @@
 
-# Test users
-
-| login    | password |
-|----------|----------|
-| rokupin  | lg4uf4rz |
-| anvincen | i9fd0y5n |
-| admin    | i34dnfen |
-| bobr     | i34dnfen |
-| silent   | i34dnfen |
-
+# Expected ENVs
+## `.env`:
+Non-sensitive data:
+```env
+DOMAIN_NAME=localhost  
+  
+ALLOWED_HOSTS=django  
+DJANGO_SETTINGS_MODULE=simplified_prj.settings  
+  
+HOST=localhost  
+PORT=42443  
+  
+STATIC_URL=/static/  
+STATIC_ROOT=/var/static  
+MEDIA_URL=/media/  
+MEDIA_ROOT=/var/media  
+OAUTH2_TOKEN_URL=https://api.intra.42.fr/oauth/token  
+OAUTH2_AUTH_URL=https://api.intra.42.fr/oauth/authorize  
+OAUTH2_MY_DATA_URL=https://api.intra.42.fr/v2/me  
+OAUTH2_TOKEN_INFO_URL=https://api.intra.42.fr/oauth/token/info  
+  
+POSTGRES_DB="pgb"  
+POSTGRES_HOST="db"  
+POSTGRES_PORT=5432
+```
+## `.db_secret.env`:
+Data to init postgres DB:
+```env
+POSTGRES_PASSWORD=*****
+POSTGRES_ADMIN_PASSWORD=*****
+POSTGRES_USER="db_user"
+POSTGRES_ADMIN_USER="db_admin_user"
+POSTGRES_DB=pgb
+POSTGRES_HOST=db
+POSTGRES_PORT=5432
+```
+## `secrets`
+Secrets directory, should be placed at project's root:
+```sh
+secrets/
+├── contract_address
+├── oauth2_client_id
+├── oauth2_client_secret
+├── postgres_admin_password
+├── postgres_admin_user
+├── postgres_password
+├── postgres_user
+├── private_key
+├── secret_key
+└── sepolia_url
+```
 # API
 ## Player
 ### GET
